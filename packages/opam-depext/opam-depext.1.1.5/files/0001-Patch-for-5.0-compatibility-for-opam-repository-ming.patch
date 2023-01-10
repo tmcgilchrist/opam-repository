@@ -1,0 +1,25 @@
+From 3d2d236bddfc337d80580f87a0e0090af7da5a43 Mon Sep 17 00:00:00 2001
+From: David Allsopp <david.allsopp@metastack.com>
+Date: Tue, 10 Jan 2023 12:09:37 +0000
+Subject: [PATCH] Patch for 5.0-compatibility for opam-repository-mingw
+
+---
+ depext.ml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/depext.ml b/depext.ml
+index 7ec306c..244dd93 100644
+--- a/depext.ml
++++ b/depext.ml
+@@ -66,7 +66,7 @@ let run_command ?(no_stderr=false) c =
+ let ask ?(default=false) fmt =
+   Printf.ksprintf (fun s ->
+       Printf.printf "%s [%s] %!" s (if default then "Y/n" else "y/N");
+-      try match String.lowercase (read_line ()) with
++      try match String.lowercase_ascii (read_line ()) with
+         | "y" | "yes" -> true
+         | "n" | "no" -> false
+         | _  -> default
+-- 
+2.34.1
+
