@@ -1,0 +1,29 @@
+From 82909a5cba80abba47f19b2c1e530f836051af91 Mon Sep 17 00:00:00 2001
+From: David Allsopp <david.allsopp@metastack.com>
+Date: Tue, 10 Jan 2023 12:28:32 +0000
+Subject: [PATCH] Use camlp-streams
+
+---
+ Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 5d28e4e..d819ae0 100644
+--- a/Makefile
++++ b/Makefile
+@@ -18,10 +18,10 @@ wrappers: $(WRAPPERS)
+ 
+ SOURCES= config_file.mli config_file.ml run.mli run.ml cygwin.mli cygwin.ml
+ 
+-PACKS = str.cmxa unix.cmxa
++PACKS = str,unix,camlp-streams
+ 
+ cygwin-install.exe: $(SOURCES)
+-	ocamlopt $(OCAMLFLAGS) $(PACKS) $(SOURCES) -o $@
++	ocamlfind ocamlopt $(OCAMLFLAGS) -package $(PACKS) -linkpkg $(SOURCES) -o $@
+ 
+ pkg-config.exe: symlink.c config.h
+ 	$(CC) -s symlink.c -o pkg-config.exe
+-- 
+2.34.1
+
