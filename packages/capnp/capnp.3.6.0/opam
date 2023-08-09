@@ -3,7 +3,7 @@ maintainer: "Paul Pelzl <pelzlpj@gmail.com>"
 authors: "Paul Pelzl <pelzlpj@gmail.com>"
 homepage: "https://github.com/capnproto/capnp-ocaml"
 bug-reports: "https://github.com/capnproto/capnp-ocaml/issues"
-license: "BSD-2-Clause"
+license: "BSD-3-Clause"
 depends: [
   "ocaml" {>= "4.08.0"}
   "dune" {>= "2.3"}
