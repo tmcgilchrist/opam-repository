@@ -31,6 +31,9 @@ build: [
   ["sh" "-exc" "cc $CFLAGS test.c -lopenblas"]
     {os-distribution != "fedora" & os-distribution != "centos" & os-family != "suse" & os-family != "opensuse" & os != "macos" & os-family != "arch" & os != "freebsd" & os != "win32"}
 ]
+depends: [
+  "conf-pkg-config"
+]
 depexts: [
   ["libc-dev" "openblas-dev" "lapack-dev"] {os-distribution = "alpine"}
   ["epel-release" "openblas-devel"] {os-distribution = "centos"}
