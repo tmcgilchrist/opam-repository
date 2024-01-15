@@ -10,7 +10,7 @@ build: [
   [
     "sh"
     "-exc"
-    "cc $CFLAGS $(pkg-config --cflags openblas) test.c $(pkg-config --libs openblas)"
+    "cc $CFLAGS $(PKG_CONFIG_PATH=\"$(brew --prefix openblas)/lib/pkgconfig:$PKG_CONFIG_PATH\" pkg-config --cflags openblas) test.c $(PKG_CONFIG_PATH=\"$(brew --prefix openblas)/lib/pkgconfig:$PKG_CONFIG_PATH\" pkg-config --libs openblas)"
   ] {os = "macos" & os-distribution = "homebrew"}
   ["sh" "-exc" "cc $CFLAGS test.c -lcblas"]
     {os-family = "arch"}
