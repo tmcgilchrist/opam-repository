@@ -21,8 +21,8 @@ depends: [
   "ppx_jane"        {>= "v0.17" & < "v0.18"}
   "virtual_dom"     {>= "v0.17" & < "v0.18"}
   "dune"            {>= "3.11.0"}
-  "js_of_ocaml"     {>= "5.1.1" & < "5.7.0"}
-  "js_of_ocaml-ppx" {>= "5.1.1" & < "5.7.0"}
+  "js_of_ocaml"     {>= "5.1.1" & < "6.1.0"}
+  "js_of_ocaml-ppx" {>= "5.1.1" & < "6.1.0"}
 ]
 available: arch != "arm32" & arch != "x86_32"
 synopsis: "A library for building dynamic webapps, using Js_of_ocaml"
